@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55B86F92-D183-4ACF-B04D-FDF6E0A96C57}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Calculator</RootNamespace>
-    <AssemblyName>Calculator</AssemblyName>
+    <ProjectGuid>{DFEF9DC1-B598-4B93-ACEB-CD1403747390}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Program</RootNamespace>
+    <AssemblyName>Program</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,10 +31,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,19 +45,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOperationManager.cs" />
-    <Compile Include="IUserComunication.cs" />
-    <Compile Include="OperationManager.cs" />
-    <Compile Include="OperationProvider.cs" />
+    <Compile Include="CalculatorFlow.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserComunication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Calculator\Calculator.csproj">
+      <Project>{55b86f92-d183-4acf-b04d-fdf6e0a96c57}</Project>
+      <Name>Calculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ErrorHandler\ErrorHandler.csproj">
+      <Project>{adf57c18-2cc2-43db-8c8f-c3a05be6fdf2}</Project>
+      <Name>ErrorHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HistoryLogger\HistoryLogger.csproj">
+      <Project>{7cadfcfe-9192-4466-b2b5-d105b5513151}</Project>
+      <Name>HistoryLogger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
-      <Project>{8CC9C681-C1AB-469E-B6CA-1C5ECBF22116}</Project>
+      <Project>{8cc9c681-c1ab-469e-b6ca-1c5ecbf22116}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
