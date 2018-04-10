@@ -24,14 +24,40 @@ namespace Calculator
             Console.WriteLine("Wybierz operację");
             foreach (var operationName in operationsList)
             {
-                Console.WriteLine($"{operationName}");
+                Console.WriteLine($" {operationName}");
             }
 
-            var operation = Console.ReadLine();
+            var choosenOperationName = Console.ReadLine();
 
-            Console.ReadKey();
-
-            return operation;
+            return choosenOperationName;
         }
+
+        public int EnterNumber(int numberOfNumber) // nazwa.????
+        {
+            Console.WriteLine($"Podaj {numberOfNumber} liczbę");
+            int number = int.Parse(Console.ReadLine());
+            return number;         
+        }
+
+        public (int number1, int number2) EnterNumbers()
+        {
+            Console.WriteLine("Podaj pierwszą liczbę:");
+            int number1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Podaj drugą liczbę:");
+            int number2 = int.Parse(Console.ReadLine());
+
+            var numbers = (number1, number2);
+
+            return numbers;
+
+        }
+
+        public void ShowResult(int result)
+        {
+            Console.WriteLine($"Wynik: {result}");
+        }
+        
+
     }
 }

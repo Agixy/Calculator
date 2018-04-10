@@ -10,15 +10,14 @@ namespace Program
 {
     internal class CalculatorFlow : ICalculatorFlow
     {
-        private readonly IOperationProvider _operationProvider;
+        private readonly IOperationManager _operationManager;
 
-        public CalculatorFlow(IOperationProvider operationProvider)
+        public CalculatorFlow(IOperationManager operationManager)
         {
-            _operationProvider = operationProvider;
+            _operationManager = operationManager;
         }
 
-
-        internal void Run()
+        public void Run()
         {
             Console.Clear();
 
@@ -26,14 +25,29 @@ namespace Program
 
             var name = userComunication.EnterName();
 
-            List<string> operationsList = new List<string>();       // wydzielic jakoś do interfejsu?
+            List<string> operationsList = new List<string>();       // wydzielic jakoś do interfejsu IOperation?
            
-            foreach (var operationName in _operationProvider.GetOperationsName())
+            foreach (var operationName in _operationManager.GetOperationsName())
             {
                 operationsList.Add(operationName);
             }
 
-            var operation = _operationProvider[userComunication.ChooseOperation(operationsList)];
+            var choosenOperation = _operationManager[userComunication.ChooseOperation(operationsList)];
+
+            Func<int, int, int> operation = choosenOperation.Calculate;
+
+            var numbers = userComunication.EnterNumbers();
+
+            int number1 = numbers.number1;
+            int number2 = numbers.number2;
+
+            // Czemu nie da się tak: int result = operation(userComunication.EnterNumbers());  ??????????????
+
+            int result = operation(number1, number2);
+
+            userComunication.ShowResult(result);
+
+            Console.ReadLine();
 
         }
     }

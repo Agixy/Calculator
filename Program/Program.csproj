@@ -37,6 +37,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,14 +60,6 @@
     <ProjectReference Include="..\Calculator\Calculator.csproj">
       <Project>{55b86f92-d183-4acf-b04d-fdf6e0a96c57}</Project>
       <Name>Calculator</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ErrorHandler\ErrorHandler.csproj">
-      <Project>{adf57c18-2cc2-43db-8c8f-c3a05be6fdf2}</Project>
-      <Name>ErrorHandler</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HistoryLogger\HistoryLogger.csproj">
-      <Project>{7cadfcfe-9192-4466-b2b5-d105b5513151}</Project>
-      <Name>HistoryLogger</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{8cc9c681-c1ab-469e-b6ca-1c5ecbf22116}</Project>

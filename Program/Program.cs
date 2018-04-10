@@ -13,12 +13,12 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            IKernel container = new StandardKernel();
+            IKernel container = new StandardKernel(new CalculatorModule());
+
+            container.Bind<ICalculatorFlow>().To<CalculatorFlow>().InSingletonScope();
 
 
-            container.Bind<IOperationProvider>().To<OperationProvider>();
-
-            var flow = container.Get<CalculatorFlow>();
+            var flow = container.Get<ICalculatorFlow>();
 
             flow.Run();
         }

@@ -2,6 +2,6 @@
 {
     public interface ICalculatorFlow
     {
-    
+        void Run();
     }
 }
