@@ -1,4 +1,6 @@
-﻿using Ninject;
+﻿using Calculator;
+using Infrastructure.Interfaces;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +15,8 @@ namespace Program
         {
             IKernel container = new StandardKernel();
 
-            container.Bind<ICalculatorFlow>().To<CalculatorFlow>();
 
+            container.Bind<IOperationProvider>().To<OperationProvider>();
 
             var flow = container.Get<CalculatorFlow>();
 

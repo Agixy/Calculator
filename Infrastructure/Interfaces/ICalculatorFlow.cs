@@ -1,6 +1,7 @@
-﻿namespace Program
+﻿namespace Infrastructure.Interfaces
 {
     public interface ICalculatorFlow
     {
+    
     }
 }

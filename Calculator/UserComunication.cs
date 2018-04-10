@@ -1,15 +1,15 @@
-﻿using Program;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Infrastructure.Interfaces;
 
 namespace Calculator
 {
     public class UserComunication : IUserComunication
     {
-        private readonly IOperationProvider _operationProvider;
+        
 
         public string EnterName()
         {
@@ -18,15 +18,20 @@ namespace Calculator
             return name;
         }
 
-        public void ChooseOperation()
+        public string ChooseOperation(List<string> operationsList)        // zrobić słownikiem na numerki?
         {
-            Console.WriteLine("Wybierz operację");
-            foreach (var operationName in _operationProvider.GetOperationName())
-            {
 
+            Console.WriteLine("Wybierz operację");
+            foreach (var operationName in operationsList)
+            {
+                Console.WriteLine($"{operationName}");
             }
 
+            var operation = Console.ReadLine();
 
+            Console.ReadKey();
+
+            return operation;
         }
     }
 }

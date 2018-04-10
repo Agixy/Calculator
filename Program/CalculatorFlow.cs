@@ -1,4 +1,5 @@
 ﻿using Calculator;
+using Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,10 @@ namespace Program
     {
         private readonly IOperationProvider _operationProvider;
 
-        public CalculatorFlow()
+        public CalculatorFlow(IOperationProvider operationProvider)
         {
+            _operationProvider = operationProvider;
         }
-
 
 
         internal void Run()
@@ -22,11 +23,17 @@ namespace Program
             Console.Clear();
 
             var userComunication = new UserComunication();
+
             var name = userComunication.EnterName();
 
-            userComunication.ChooseOperation();
+            List<string> operationsList = new List<string>();       // wydzielic jakoś do interfejsu?
+           
+            foreach (var operationName in _operationProvider.GetOperationsName())
+            {
+                operationsList.Add(operationName);
+            }
 
-
+            var operation = _operationProvider[userComunication.ChooseOperation(operationsList)];
 
         }
     }
