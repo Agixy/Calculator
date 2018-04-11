@@ -3,5 +3,7 @@
     public interface ICalculatorFlow
     {
         void Run();
+        //event EventHandler<wyniki> CalculatingFinished;
+
     }
 }

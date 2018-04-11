@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Calculator.Operations
 {
-    class Substract : IOperation
+    class Multiply : IOperation
     {
-        public string Name => "Odejmij";
+        public string Name => "Pomnóż";
 
       
         public double Calculate(int number1, int number2)
         {
-            return number1 - number2;
+            return number1 * number2;
         }
     }
 }

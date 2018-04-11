@@ -18,7 +18,17 @@ namespace Calculator
 
         public IOperation this[string n]
         {
-            get { return _operations.First(g => g.Name == n); }
+            get
+            {
+                try
+                {
+                    return  _operations.FirstOrDefault(g => g.Name == n);
+                }
+                catch (ArgumentNullException e)
+                {
+                    return null;
+                }             
+            }
         }
 
         public string[] GetOperationsName()

@@ -11,19 +11,21 @@ namespace Program
     internal class CalculatorFlow : ICalculatorFlow
     {
         private readonly IOperationManager _operationManager;
+        private readonly IUserComunication _userComunication;
 
-        public CalculatorFlow(IOperationManager operationManager)
+        public CalculatorFlow(IOperationManager operationManager, IUserComunication userComunication)
         {
             _operationManager = operationManager;
+            _userComunication = userComunication;
         }
+
+        //public event EventHandler<wyniki> CalculatingFinished;
 
         public void Run()
         {
             Console.Clear();
 
-            var userComunication = new UserComunication();
-
-            var name = userComunication.EnterName();
+            var name = _userComunication.EnterName();
 
             List<string> operationsList = new List<string>();       // wydzielic jakoś do interfejsu IOperation?
            
@@ -32,22 +34,34 @@ namespace Program
                 operationsList.Add(operationName);
             }
 
-            var choosenOperation = _operationManager[userComunication.ChooseOperation(operationsList)];
+            do
+            { 
 
-            Func<int, int, int> operation = choosenOperation.Calculate;
+                var choosenOperation = _operationManager[_userComunication.ChooseOperation(operationsList)];
 
-            var numbers = userComunication.EnterNumbers();
+            
+                if (choosenOperation == null)
+                {
+                    _userComunication.WrongDataMessage();
+                }
+                else
+                {
+                    Func<int, int, double> operation = choosenOperation.Calculate;
 
-            int number1 = numbers.number1;
-            int number2 = numbers.number2;
+                    var numbers = _userComunication.EnterNumbers();
 
-            // Czemu nie da się tak: int result = operation(userComunication.EnterNumbers());  ??????????????
+                    int number1 = numbers.number1;
+                    int number2 = numbers.number2;
 
-            int result = operation(number1, number2);
+                    // Czemu nie da się tak: int result = operation(userComunication.EnterNumbers());  ??????????????
 
-            userComunication.ShowResult(result);
+                    double result = operation(number1, number2);
 
-            Console.ReadLine();
+                    _userComunication.ShowResult(result);
+
+                    Console.ReadLine();
+                }
+            } while (true);
 
         }
     }

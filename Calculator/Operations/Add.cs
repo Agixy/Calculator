@@ -11,7 +11,7 @@ namespace Calculator.Operations
     {
         public string Name => "Dodaj";
 
-        public int Calculate(int number1, int number2)      // operacje to mają być delegaty
+        public double Calculate(int number1, int number2)      // operacje to mają być delegaty
         {
             return number1 + number2;
         }

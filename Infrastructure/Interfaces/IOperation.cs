@@ -4,7 +4,7 @@
     {
         string Name { get; }
 
-        int Calculate(int number1, int number2);
+        double Calculate(int number1, int number2);
 
     }
 }

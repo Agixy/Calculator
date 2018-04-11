@@ -10,7 +10,6 @@ namespace Calculator
     public class UserComunication : IUserComunication
     {
         
-
         public string EnterName()
         {
             Console.WriteLine("Podaj swoje imie");
@@ -31,13 +30,7 @@ namespace Calculator
 
             return choosenOperationName;
         }
-
-        public int EnterNumber(int numberOfNumber) // nazwa.????
-        {
-            Console.WriteLine($"Podaj {numberOfNumber} liczbę");
-            int number = int.Parse(Console.ReadLine());
-            return number;         
-        }
+     
 
         public (int number1, int number2) EnterNumbers()
         {
@@ -53,9 +46,14 @@ namespace Calculator
 
         }
 
-        public void ShowResult(int result)
+        public void ShowResult(double result)
         {
             Console.WriteLine($"Wynik: {result}");
+        }
+
+        public void WrongDataMessage()
+        {
+            Console.WriteLine("Nieprawidłowo wpisane dane");
         }
         
 

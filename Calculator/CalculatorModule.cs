@@ -17,6 +17,8 @@ namespace Calculator
             Bind<IOperationManager>().To<OperationManager>();
             Bind<IOperation>().To<Add>();
             Bind<IOperation>().To<Substract>();
+            Bind<IOperation>().To<Multiply>();
+            Bind<IOperation>().To<Divide>();
         }
     }
 }
