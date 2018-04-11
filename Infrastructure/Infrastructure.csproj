@@ -49,9 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICalculatorFlow.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IOperation.cs" />
     <Compile Include="Interfaces\IOperationManager.cs" />
     <Compile Include="Interfaces\IUserComunication.cs" />
+    <Compile Include="IOperationData.cs" />
+    <Compile Include="OperationData.cs" />
+    <Compile Include="OperationEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

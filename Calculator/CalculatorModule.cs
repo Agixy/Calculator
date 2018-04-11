@@ -13,6 +13,7 @@ namespace Calculator
     {
         public override void Load()
         {
+            Bind<ICalculatorFlow>().To<CalculatorFlow>().InSingletonScope();
             Bind<IUserComunication>().To<UserComunication>();
             Bind<IOperationManager>().To<OperationManager>();
             Bind<IOperation>().To<Add>();

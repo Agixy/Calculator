@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculatorFlow.cs" />
     <Compile Include="CalculatorModule.cs" />
     <Compile Include="Operations\Add.cs" />
     <Compile Include="OperationManager.cs" />

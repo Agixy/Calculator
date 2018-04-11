@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculatorFlow.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +60,10 @@
     <ProjectReference Include="..\Calculator\Calculator.csproj">
       <Project>{55b86f92-d183-4acf-b04d-fdf6e0a96c57}</Project>
       <Name>Calculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HistoryLogger\HistoryLogger.csproj">
+      <Project>{7CADFCFE-9192-4466-B2B5-D105B5513151}</Project>
+      <Name>HistoryLogger</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{8cc9c681-c1ab-469e-b6ca-1c5ecbf22116}</Project>

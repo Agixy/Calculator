@@ -1,4 +1,6 @@
 ﻿using Calculator;
+using HistoryLogger;
+using Infrastructure;
 using Infrastructure.Interfaces;
 using Ninject;
 using System;
@@ -13,14 +15,18 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            IKernel container = new StandardKernel(new CalculatorModule());
-
-            container.Bind<ICalculatorFlow>().To<CalculatorFlow>().InSingletonScope();
-
+            IKernel container = new StandardKernel(new CalculatorModule(), new ProgramModule(), new HistoryLoggerModule());
 
             var flow = container.Get<ICalculatorFlow>();
+            var operatrions = container.Get<ILogger>();
 
-            flow.Run();
+            flow.Run();         
+
+            foreach (var oper in operatrions.List())
+            {
+                Console.WriteLine(oper);
+            }
+            Console.ReadLine();
         }
     }
 }
