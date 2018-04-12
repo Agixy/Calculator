@@ -7,7 +7,7 @@ using Infrastructure.Interfaces;
 
 namespace Calculator
 {
-    public class UserComunication : IUserComunication
+    internal class UserComunication : IUserComunication
     {
         
         public string EnterName()

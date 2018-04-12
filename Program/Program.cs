@@ -18,10 +18,17 @@ namespace Program
             IKernel container = new StandardKernel(new CalculatorModule(), new ProgramModule(), new HistoryLoggerModule());
 
             var flow = container.Get<ICalculatorFlow>();
-            var operatrions = container.Get<ILogger>();
+            var logger = container.Get<ILogger>();
 
-            flow.Run();         
-           
+            //saving.CreateFile();
+
+            flow.Run();
+
+            //foreach (var oper in logger.List())
+            //{
+            //    Console.WriteLine(oper);
+            //}
+            //Console.ReadLine();
         }
     }
 }

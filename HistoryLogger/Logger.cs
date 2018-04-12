@@ -10,26 +10,28 @@ namespace HistoryLogger
 {
     public class Logger : ILogger
     {
-        List<OperationData> _operationsList = new List<OperationData>();
-        private readonly int _howMany;
+        public readonly ISaving _saving;
 
-        public Logger(List<OperationData> operationsList, int howMany, ICalculatorFlow flow)
+        List<OperationData> _operationsList = new List<OperationData>();
+        //private readonly int _howMany;
+
+        public Logger(ICalculatorFlow flow, ISaving saving)
         {
-            _operationsList = operationsList;
-            _howMany = howMany;
-            flow.CalculatingFinished += Flow_CalculatinFinished;
+            flow.CalculatingFinished += Flow_CalculatingFinished;
+            _saving = saving;
         }
 
-        private void Flow_CalculatinFinished(object sender, OperationEventArgs e)
+        private void Flow_CalculatingFinished(object sender, OperationEventArgs e)
         {
             Add(e.OperationData);
+            _saving.AddOperationToFile(e.OperationData);
+
         }
 
         public OperationData[] List()
         {
             return _operationsList.ToArray();
         }
-
 
         public void Add(OperationData data)
         {

@@ -1,4 +1,5 @@
-﻿using Ninject.Modules;
+﻿using Infrastructure.Interfaces;
+using Ninject.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,9 @@ namespace HistoryLogger
     {
         public override void Load()
         {
-            Bind<ILogger>().To<Logger>().WithConstructorArgument("howMany", 5);
+            Bind<ILogger>().To<Logger>();
+            Bind<IHistoryUserComunication>().To<HistoryUserComunication>();
+            Bind<ISaving>().To<Saving>();
         }
     }
 }

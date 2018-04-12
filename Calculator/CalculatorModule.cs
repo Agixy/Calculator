@@ -1,4 +1,5 @@
 ﻿using Calculator.Operations;
+using HistoryLogger;
 using Infrastructure.Interfaces;
 using Ninject.Modules;
 using System;
