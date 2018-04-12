@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ErrorHandler
 {
-    public class Class1
+    public class ErrorHandler
     {
     }
 }

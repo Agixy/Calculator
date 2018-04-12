@@ -24,8 +24,19 @@ namespace HistoryLogger
         private void Flow_CalculatingFinished(object sender, OperationEventArgs e)
         {
             Add(e.OperationData);
-            _saving.AddOperationToFile(e.OperationData);
+            bool correctOperation = _saving.AddOperationToFile(e.OperationData);
 
+            if(!correctOperation)
+            {
+                SignOffEvent();            
+                Console.Error.WriteLine("Błąd operacji");   // czy o to chodzi ???????????????????????????????????????? W USerComun?
+            }
+
+        }
+
+        void SignOffEvent()
+        {
+            // jak sie wypisać ????????
         }
 
         public OperationData[] List()

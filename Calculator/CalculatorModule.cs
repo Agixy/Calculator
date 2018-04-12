@@ -21,6 +21,10 @@ namespace Calculator
             Bind<IOperation>().To<Substract>();
             Bind<IOperation>().To<Multiply>();
             Bind<IOperation>().To<Divide>();
+            Bind<IOperation>().To<Power>();
+            Bind<IOperation>().To<AND>();
+            Bind<IOperation>().To<OR>();
+            Bind<IOperation>().To<XOR>();
         }
     }
 }

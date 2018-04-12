@@ -5,6 +5,6 @@ namespace HistoryLogger
     public interface ISaving
     {
        // void CreateFile();
-        void AddOperationToFile(OperationData operation);
+        bool AddOperationToFile(OperationData operation);
     }
 }

@@ -31,14 +31,21 @@ namespace HistoryLogger
         //   File.Create(pathToFile);
         //}
 
-        public void AddOperationToFile(OperationData operation)         // Robic dodawanie tytułów? Z ręki czy jest jakis sposób?
+        public bool AddOperationToFile(OperationData operation)         // Robic dodawanie tytułów(nagłówek całego pliku)? Z ręki czy jest jakis sposób?
         {
-            StringBuilder sb = new StringBuilder();
+            try
+            {
+                StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(operation.ToCSV());
- 
-            File.AppendAllText(pathToFile, sb.ToString());                
+                sb.AppendLine(operation.ToCSV());
+
+                File.AppendAllText(pathToFile, sb.ToString());
+                return true; // czy wykona sie jak wyzej bedzie błąd?
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
         }      
-
     }
 }
