@@ -1,4 +1,5 @@
 ﻿using Infrastructure;
+using Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,11 @@ namespace HistoryLogger
         List<OperationData> _operationsList = new List<OperationData>();
         private readonly int _howMany;
 
-        public Logger(List<OperationData> operationsList, int howMany)
+        public Logger(List<OperationData> operationsList, int howMany, ICalculatorFlow flow)
         {
             _operationsList = operationsList;
             _howMany = howMany;
+            flow.CalculatingFinished += Flow_CalculatinFinished;
         }
 
         private void Flow_CalculatinFinished(object sender, OperationEventArgs e)

@@ -21,12 +21,7 @@ namespace Program
             var operatrions = container.Get<ILogger>();
 
             flow.Run();         
-
-            foreach (var oper in operatrions.List())
-            {
-                Console.WriteLine(oper);
-            }
-            Console.ReadLine();
+           
         }
     }
 }
