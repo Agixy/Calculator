@@ -1,6 +1,5 @@
 ﻿using Infrastructure;
 using Infrastructure.Interfaces;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,12 +34,8 @@ namespace HistoryLogger
         {
             try
             {
-                StringBuilder sb = new StringBuilder();
-
-                sb.AppendLine(operation.ToCSV());
-
-                File.AppendAllText(pathToFile, sb.ToString());
-                return true; // czy wykona sie jak wyzej bedzie błąd?
+                File.AppendAllText(pathToFile, operation.ToCSV() + Environment.NewLine);
+                return true; 
             }
             catch(Exception e)
             {

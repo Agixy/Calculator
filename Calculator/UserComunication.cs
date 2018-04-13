@@ -10,16 +10,15 @@ namespace Calculator
     internal class UserComunication : IUserComunication
     {
         
-        public string EnterName()
-        {
-            Console.WriteLine("Podaj swoje imie");
-            var name = Console.ReadLine();
-            return name;
-        }
+        //public string EnterName()
+        //{
+        //    Console.WriteLine("Podaj swoje imie");
+        //    var name = Console.ReadLine();
+        //    return name;
+        //}
 
         public string ChooseOperation(List<string> operationsList)        // zrobić słownikiem na numerki?
         {
-
             Console.WriteLine("Wybierz operację");
             foreach (var operationName in operationsList)
             {
@@ -27,7 +26,6 @@ namespace Calculator
             }
 
             var choosenOperationName = Console.ReadLine();
-
             return choosenOperationName;
         }
      
@@ -55,7 +53,10 @@ namespace Calculator
         {
             Console.WriteLine("Nieprawidłowo wpisane dane");
         }
-        
 
+        public void WriteText(string message)
+        {
+            Console.WriteLine(message);
+        }
     }
 }

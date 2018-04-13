@@ -9,9 +9,9 @@ namespace Calculator.Operations
 {
     class AND : IOperation
     {
-        public string Name => "AND(&)";
+        public string Name => "AND";
 
-        public double Calculate(int number1, int number2)
+        public int Calculate(int number1, int number2)
         {
             return number1 & number2;
         }

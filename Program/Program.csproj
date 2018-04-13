@@ -61,6 +61,10 @@
       <Project>{55b86f92-d183-4acf-b04d-fdf6e0a96c57}</Project>
       <Name>Calculator</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ErrorHandler\ErrorHandler.csproj">
+      <Project>{ADF57C18-2CC2-43DB-8C8F-C3A05BE6FDF2}</Project>
+      <Name>ErrorHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HistoryLogger\HistoryLogger.csproj">
       <Project>{7CADFCFE-9192-4466-B2B5-D105B5513151}</Project>
       <Name>HistoryLogger</Name>

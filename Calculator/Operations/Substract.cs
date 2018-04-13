@@ -12,7 +12,7 @@ namespace Calculator.Operations
         public string Name => "Odejmij";
 
       
-        public double Calculate(int number1, int number2)
+        public int Calculate(int number1, int number2)
         {
             return number1 - number2;
         }

@@ -6,6 +6,7 @@ namespace Infrastructure.Interfaces
     {
         void Run();
         event EventHandler<OperationEventArgs> CalculatingFinished;
+        event EventHandler<OperationEventArgs> CalculatingError;
 
     }
 }

@@ -6,4 +6,8 @@ namespace Infrastructure
     {
         public OperationData OperationData { get; set; }
     }
+
+    public class OperationErrorEventArgs : OperationEventArgs
+    {
+    }
 }

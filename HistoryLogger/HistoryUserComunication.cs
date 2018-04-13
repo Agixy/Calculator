@@ -11,9 +11,9 @@ namespace HistoryLogger
     {
         public string EnterPathToFile()
         {
-            Console.WriteLine("Przed rozpoczęciem podaj ścieżkę gdzie chcesz zapisać historię operacji");
             string path = Console.ReadLine();
             return path;
         }
+       
     }
 }

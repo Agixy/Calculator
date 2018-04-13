@@ -10,44 +10,32 @@ namespace HistoryLogger
 {
     public class Logger : ILogger
     {
-        public readonly ISaving _saving;
-
-        List<OperationData> _operationsList = new List<OperationData>();
-        //private readonly int _howMany;
+        private readonly ICalculatorFlow _flow;
+        private readonly ISaving _saving;
 
         public Logger(ICalculatorFlow flow, ISaving saving)
         {
             flow.CalculatingFinished += Flow_CalculatingFinished;
+            _flow = flow;
             _saving = saving;
         }
 
         private void Flow_CalculatingFinished(object sender, OperationEventArgs e)
         {
-            Add(e.OperationData);
             bool correctOperation = _saving.AddOperationToFile(e.OperationData);
 
-            if(!correctOperation)
-            {
-                SignOffEvent();            
-                Console.Error.WriteLine("Błąd operacji");   // czy o to chodzi ???????????????????????????????????????? W USerComun?
-            }
-
+            if (correctOperation)
+                return;
+            SignOffEvent();            
+            Console.Error.WriteLine("Błąd operacji");   // do userCom
         }
 
         void SignOffEvent()
         {
-            // jak sie wypisać ????????
+            _flow.CalculatingFinished -= Flow_CalculatingFinished;
         }
 
-        public OperationData[] List()
-        {
-            return _operationsList.ToArray();
-        }
-
-        public void Add(OperationData data)
-        {
-            _operationsList.Add(data);
-        }
+     
 
     }
 }

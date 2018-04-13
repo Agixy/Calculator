@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ErrorHandler;
 
 namespace Program
 {
@@ -15,10 +16,11 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            IKernel container = new StandardKernel(new CalculatorModule(), new ProgramModule(), new HistoryLoggerModule());
+            IKernel container = new StandardKernel(new CalculatorModule(), new ProgramModule(), new HistoryLoggerModule(), new ErrorHandlerModule());
 
             var flow = container.Get<ICalculatorFlow>();
             var logger = container.Get<ILogger>();
+            var error = container.Get<IErrorHandler>();
 
             //saving.CreateFile();
 

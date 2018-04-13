@@ -9,9 +9,9 @@ namespace Calculator.Operations
 {
     class OR : IOperation
     {
-        public string Name => "OR(|)";
+        public string Name => "OR";
 
-        public double Calculate(int number1, int number2)
+        public int Calculate(int number1, int number2)
         {
             return number1 | number2;
         }

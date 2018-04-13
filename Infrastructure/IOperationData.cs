@@ -3,7 +3,7 @@
     public interface IOperationData
     {
         string Name { get; }
-        double Result { get; }
+        int? Result { get; }
         int InputNumber1 { get; }
         int InputNumber2 { get; }
     }
