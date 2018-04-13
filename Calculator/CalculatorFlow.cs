@@ -21,9 +21,7 @@ namespace Calculator
             _operationManager = operationManager;
             _userComunication = userComunication;
 
-        }
-    
-       // public OperationData OperationData { get => new NotImplementedException(); } // po co te wyjatki????? 
+        } 
 
         public event EventHandler<OperationEventArgs> CalculatingFinished;
         public event EventHandler<OperationEventArgs> CalculatingError;
@@ -51,7 +49,7 @@ namespace Calculator
                     Func<int, int, int> operation = choosenOperation.Calculate;
                     var numbers = _userComunication.EnterNumbers();
 
-                    try
+                    try             // Czy błędne operacje też mają się zapisywać do pliku?
                     {                       
                          int result = operation(numbers.number1, numbers.number2);
                         _userComunication.ShowResult(result);
@@ -65,11 +63,9 @@ namespace Calculator
                         var wrongOperationData = new OperationData(choosenOperation.Name, null, numbers.number1, numbers.number2);
                         var eventErrorArgs = new OperationEventArgs { OperationData = wrongOperationData };
                         CalculatingError?.Invoke(this, eventErrorArgs);
-                        _userComunication.WriteText(e.Message);
+                        _userComunication.ShowMessage(e.Message);
                     }
-                                      
-                    Console.ReadLine();
-                   
+                    Console.WriteLine();                
                 }           
             } while (true);        
         }

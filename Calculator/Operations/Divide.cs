@@ -15,9 +15,8 @@ namespace Calculator.Operations
         {
             if (number2 == 0)
             {
-                throw new InvalidOperationException("Nie można dzielić przez 0");
-            }
-                           
+                throw new InvalidOperationException("Nie można dzielić przez 0");       // czy to też ma być na czerwono?
+            }                           
             return number1 / number2;
         }
     }

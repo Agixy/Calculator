@@ -2,6 +2,6 @@
 {
     public interface IHistoryUserComunication
     {
-        string EnterPathToFile();
+        void OperationErrorMessage();
     }
 }

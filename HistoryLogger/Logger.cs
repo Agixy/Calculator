@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace HistoryLogger
 {
-    public class Logger : ILogger
+    internal class Logger : ILogger
     {
         private readonly ICalculatorFlow _flow;
         private readonly ISaving _saving;
+        private readonly IHistoryUserComunication _historyUserComunication;
 
         public Logger(ICalculatorFlow flow, ISaving saving)
         {
@@ -26,16 +27,13 @@ namespace HistoryLogger
 
             if (correctOperation)
                 return;
-            SignOffEvent();            
-            Console.Error.WriteLine("Błąd operacji");   // do userCom
+            SignOffEvent();
+            _historyUserComunication.OperationErrorMessage();
         }
 
         void SignOffEvent()
         {
             _flow.CalculatingFinished -= Flow_CalculatingFinished;
-        }
-
-     
-
+        }   
     }
 }

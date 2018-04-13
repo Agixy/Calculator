@@ -9,28 +9,17 @@ using System.Threading.Tasks;
 
 namespace HistoryLogger
 {
-    class Saving : ISaving
+    internal class Saving : ISaving
     {
         private const string pathToFile = "OperationsHistory.csv";
         private readonly IHistoryUserComunication _historyUserComunication;
-       // private readonly ILogger _logger;
 
-        public Saving(IHistoryUserComunication historyUserComunication)//,ILogger logger)
+        public Saving(IHistoryUserComunication historyUserComunication)
         {
             _historyUserComunication = historyUserComunication;
-            //_logger = logger;
         }
         
-        //public void CreateFile()
-        //{
-        //    string path = _historyUserComunication.EnterPathToFile();
-
-        //   string pathToFile = Path.Combine(path, "OperationsHistory.csv");
-
-        //   File.Create(pathToFile);
-        //}
-
-        public bool AddOperationToFile(OperationData operation)         // Robic dodawanie tytułów(nagłówek całego pliku)? Z ręki czy jest jakis sposób?
+        public bool AddOperationToFile(OperationData operation)
         {
             try
             {

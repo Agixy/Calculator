@@ -8,6 +8,6 @@ namespace Infrastructure.Interfaces
         (int number1, int number2) EnterNumbers();
         void ShowResult(double result);
         void WrongDataMessage();
-        void WriteText(string message);
+        void ShowMessage(string message);
     }
 }

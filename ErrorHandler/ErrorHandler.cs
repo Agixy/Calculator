@@ -10,7 +10,7 @@ using Infrastructure.Interfaces;
 namespace ErrorHandler
 {
     public class ErrorHandler : IErrorHandler     
-    {                               // dzielenie i potega moze miec blad -> maja rzucac event zamiast wyjatu. try catch -> event
+    {                              
         private readonly ICalculatorFlow _flow;
 
         public ErrorHandler(ICalculatorFlow flow)
@@ -21,8 +21,9 @@ namespace ErrorHandler
   
         private void WriteErrors(object sender, OperationEventArgs operationEventArgs)
         {
-            Console.WriteLine($"Nie można wykonać operacji: {operationEventArgs.OperationData}");    // na czerowno
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Nie można wykonać operacji: {operationEventArgs.OperationData}");
+            Console.ResetColor();
         }
     }                               
-
 }

@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace HistoryLogger
 {
-    public class HistoryUserComunication : IHistoryUserComunication
+    internal class HistoryUserComunication : IHistoryUserComunication
     {
-        public string EnterPathToFile()
+        public void OperationErrorMessage()
         {
-            string path = Console.ReadLine();
-            return path;
+            Console.Error.WriteLine("Błąd operacji");
         }
-       
     }
 }

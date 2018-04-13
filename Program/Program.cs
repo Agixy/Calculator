@@ -22,15 +22,7 @@ namespace Program
             var logger = container.Get<ILogger>();
             var error = container.Get<IErrorHandler>();
 
-            //saving.CreateFile();
-
             flow.Run();
-
-            //foreach (var oper in logger.List())
-            //{
-            //    Console.WriteLine(oper);
-            //}
-            //Console.ReadLine();
         }
     }
 }

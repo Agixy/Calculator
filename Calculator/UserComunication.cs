@@ -9,15 +9,7 @@ namespace Calculator
 {
     internal class UserComunication : IUserComunication
     {
-        
-        //public string EnterName()
-        //{
-        //    Console.WriteLine("Podaj swoje imie");
-        //    var name = Console.ReadLine();
-        //    return name;
-        //}
-
-        public string ChooseOperation(List<string> operationsList)        // zrobić słownikiem na numerki?
+        public string ChooseOperation(List<string> operationsList) 
         {
             Console.WriteLine("Wybierz operację");
             foreach (var operationName in operationsList)
@@ -29,19 +21,29 @@ namespace Calculator
             return choosenOperationName;
         }
      
-
         public (int number1, int number2) EnterNumbers()
         {
-            Console.WriteLine("Podaj pierwszą liczbę:");
-            int number1 = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Podaj drugą liczbę:");
-            int number2 = int.Parse(Console.ReadLine());
-
-            var numbers = (number1, number2);
+            bool correctNumber = true;
+            var numbers = (0, 0);
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Podaj pierwszą liczbe:");
+                    int number1 = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Podaj drugą liczbę:");
+                    int number2 = int.Parse(Console.ReadLine());
+                    numbers = (number1, number2);
+                    correctNumber = true;
+                }
+                catch(Exception e)
+                {
+                    WrongDataMessage();
+                    correctNumber = false;
+                }                         
+            } while (!correctNumber);
 
             return numbers;
-
         }
 
         public void ShowResult(double result)
@@ -54,9 +56,9 @@ namespace Calculator
             Console.WriteLine("Nieprawidłowo wpisane dane");
         }
 
-        public void WriteText(string message)
+        public void ShowMessage(string message)
         {
             Console.WriteLine(message);
-        }
+        }       
     }
 }
