@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ErrorHandler.cs" />
     <Compile Include="ErrorHandlerModule.cs" />
+    <Compile Include="ErrorHandlerUserComunication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\ICalculatorFlow.cs" />
     <Compile Include="Interfaces\IErrorHandler.cs" />
+    <Compile Include="Interfaces\IErrorHandlerUserComunication.cs" />
     <Compile Include="Interfaces\IHistoryUserComunication.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IOperation.cs" />

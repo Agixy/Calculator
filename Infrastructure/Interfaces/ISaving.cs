@@ -1,10 +1,9 @@
 ﻿using Infrastructure;
 
-namespace HistoryLogger
+namespace Infrastructure.Interfaces
 {
     public interface ISaving
     {
-       // void CreateFile();
         bool AddOperationToFile(OperationData operation);
     }
 }

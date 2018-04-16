@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Infrastructure.Interfaces;
 
 namespace Calculator
@@ -53,7 +50,8 @@ namespace Calculator
 
         public void WrongDataMessage()
         {
-            Console.WriteLine("Nieprawidłowo wpisane dane");
+            Console.WriteLine("Nieprawidłowo wpisane dane. Naciśnij Enter aby wpisać jeszcze raz.");
+            Console.ReadKey();
         }
 
         public void ShowMessage(string message)

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Infrastructure.Interfaces;
 using Ninject.Modules;
 
 namespace ErrorHandler
@@ -12,6 +8,7 @@ namespace ErrorHandler
         public override void Load()
         {
             Bind<IErrorHandler>().To<ErrorHandler>();
+            Bind<IErrorHandlerUserComunication>().To<ErrorHandlerUserComunication>();
         }
     }
 }

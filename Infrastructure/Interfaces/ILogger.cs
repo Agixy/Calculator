@@ -1,10 +1,9 @@
 ﻿using Infrastructure;
 using System.Collections.Generic;
 
-namespace HistoryLogger
+namespace Infrastructure.Interfaces
 {
     public interface ILogger
-    {
-        
+    {        
     }
 }

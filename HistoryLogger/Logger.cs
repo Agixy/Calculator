@@ -1,10 +1,5 @@
 ﻿using Infrastructure;
 using Infrastructure.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HistoryLogger
 {
@@ -31,7 +26,7 @@ namespace HistoryLogger
             _historyUserComunication.OperationErrorMessage();
         }
 
-        void SignOffEvent()
+        private void SignOffEvent()
         {
             _flow.CalculatingFinished -= Flow_CalculatingFinished;
         }   

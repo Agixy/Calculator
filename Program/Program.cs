@@ -1,13 +1,7 @@
 ﻿using Calculator;
 using HistoryLogger;
-using Infrastructure;
 using Infrastructure.Interfaces;
 using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ErrorHandler;
 
 namespace Program

@@ -1,4 +1,4 @@
-﻿namespace ErrorHandler
+﻿namespace Infrastructure.Interfaces
 {
     public interface IErrorHandler
     {

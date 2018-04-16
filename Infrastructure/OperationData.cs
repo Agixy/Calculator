@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Infrastructure
+﻿namespace Infrastructure
 {
     public class OperationData : IOperationData
     {
@@ -34,7 +28,5 @@ namespace Infrastructure
         {
             return $"{Name},{InputNumber1},{InputNumber2},{Result}";
         }
-
-        // publicDateTime OperationDate;
     }
 }
